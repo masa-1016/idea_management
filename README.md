@@ -1,24 +1,25 @@
-# README
+# 課題＠Medpeer様
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# テーブル設計
 
-* Ruby version
+![ER ](https://user-images.githubusercontent.com/77272798/122301272-69347e00-cf3b-11eb-869a-bdac7be50190.png)
 
-* System dependencies
+## categoriesテーブル
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| name     | string | null: false |
 
-* Configuration
+### Association
 
-* Database creation
+- has_many :ideas
 
-* Database initialization
+## ideasテーブル
+| Column      | Type   | Options        |
+| ----------- | ------ | -------------- |
+| category_id | bigint | null: false    |
+| body        | text   | null: false    |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- belongs_to :category

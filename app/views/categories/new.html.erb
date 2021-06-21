@@ -1,0 +1,21 @@
+	<h1>新規投稿ページ</h1>
+
+  <%= form_with model: @category, local: true do |f| %>
+    <div class='category-new' >
+      <div class='category-label' >
+        <%="カテゴリー" %>
+      </div>
+      <div class='category-form' >
+        <%=f.text_field :name %>
+      </div>
+      <%=f.fields_for :ideas do |idea|%>
+        <div class='idea-label' >
+        <%="アイディア" %>
+      </div>
+        <div class='idea-form' >
+          <%= idea.text_field :body %>
+        <div>
+      <% end %>
+      <%= f.submit "投稿する" ,class:"send-btn" %>
+    </div>
+  <% end %>
